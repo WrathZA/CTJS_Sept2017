@@ -1,0 +1,143 @@
+Hi All,
+
+I'm Brett... BLAH BLAH
+
+Lets get a couple things straight right off the bat, if you're hoping to learn JS tonight, I'm sorry but you're going to be disapointed... 
+It's takes way more than 40 mins get get a real introduction to the language but I hope that I provide some context on what it is and how it works. I have some links to my favourite books at the end that will get you started.
+
+the purpose of this talk in my mind is to hit some of the concepts and that will allow you to get over the hurdles to really get going. 
+
+So...
+
+In order to understand where JS is coming from you need to understand the JR. The Javascript Engine and when it comes from...
+
+"JS is a high-level, dynamic, weakly typed, object-based, multi-paradigm, and interpreted programming language"
+
+What's is: 
+-interpreted 
+ This means it isn't compiled. It runs on the JR. Like Python. 
+-dynamic
+-weakly typed (langauge can be extended)
+
+It's an outlier in so much as it's a high level interpreted language that is often the targer of other compiled languages.  Newer version of the JS standard often be transpiled into a more common varient of JS. 
+Different dialects like TypeScript that add addition features like strong typing or entirely different languages that have a completly different paradigm such as Elm or ClosureScript (LISP) can target it.
+It's the bytecode in the JVM sense or machine code in the native sense. 
+
+WHY? Browsers
+https://kangax.github.io/compat-table
+
+Language ES? EcmaScript... Microsoft JScript/Netscape shaninigants....
+
+Engine! Different implementations! V8, Chakra, SpiderMonkey, NODE! (2009 only?!)
+
+What's in the engine?
+
+So how does JS work.
+
+Single Threaded! (yes, I know about service workers! *Whoever just thought about service worker! It's a great idea for a talk... come give one! ) 
+Non Blocking!
+Concurrent 
+Event Driven. 
+
+So it has a call stack, heap, an event loop, callback queue
+
+http://latentflip.com/loupe
+
+
+langauge!
+
+var x = 1
+typeof x
+x = "1"
+typeof x
+x = function(){}
+typeof x
+
+FUNCTIONS are values. First class citizens in the language. They can be passed around like varibles
+
+REFERENCE TYPES!
+
+x = "banana"
+"banana"
+x = [x]
+["banana"]0: "banana"length: 1__proto__: Array(0)
+x = [x, x]
+(2) [Array(1), Array(1)]0: Array(1)0: "banana"length: 1__proto__: Array(0)1: Array(1)0: "banana"length: 1__proto__: Array(0)length: 2__proto__: Array(0)
+x[0]
+["banana"]0: "banana"length: 1__proto__: Array(0)
+x[0][0]
+"banana"
+x[1]
+["banana"]
+x[1][0]
+"banana"
+x[1][0] = "apple"
+"apple"
+x[0][0]
+"apple"
+
+POINTERS
+
+x = {}
+{}
+x
+{}
+x.ref = x
+
+-----------------------------------
+Syncronise versus async programming
+-----------------------------------
+
+SYNCHRONOUS
+
+You are in a queue to get a movie ticket. You cannot get one until everybody in front of you gets one, and the same applies to the people queued behind you.
+
+ASYNCHRONOUS
+
+You are in a restaurant with many other people. You order your food. Other people can also order their food, they don't have to wait for your food to be cooked and served to you before they can order. In the kitchen restaurant workers are continuously cooking, serving, and taking orders. People will get their food served as soon as it is cooked.
+
+-------------------------------------------------------------
+WTF is a promise.... Also called a Future in Java, Task in C#
+-------------------------------------------------------------
+
+What's a promise in the "real world". It's somethin you asked for happening at some point. 
+What the states a promise can exist in? Resolved, Broken or Waiting. 
+
+In the same way a promise in JS is a data structure that a promise being resolved, being broken or still waiting on one.
+
+An instance of a promise only has two methods. then() and catch() each representing a resolved promise, or a broken one... 
+What about waiting state? Well, that's an unresolve promise.
+
+Why are promises useful.
+
+*example of callback hell*
+
+Pyramid of DOOM! 
+
+Because they're data, you can treat them as such. you can compose them. You can race them, you can chain them! 
+
+*Example of XHR race*
+*Example of all to glue together a picture or something?*
+
+From a technical perspective, the easist way to think about a promise is that it's THEN...ABLE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

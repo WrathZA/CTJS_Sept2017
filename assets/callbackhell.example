@@ -1,0 +1,13 @@
+asyncCall1(data, function() {
+      data = doThing1(data);
+      asyncCall2(data, function() {
+          data = doThing2(data);
+          asyncCall3(data, function() {
+              data = doThing3(data);
+              asyncCall4(data, function() {
+                  data = doThing4(data);
+                  console.log("All done!");
+              });
+          });
+      });
+  });

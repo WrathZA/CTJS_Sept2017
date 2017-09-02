@@ -1,0 +1,19 @@
+export default class Interactive extends Component {
+  handleClick() {
+    this.setState({ count: this.state.count + 1 });
+
+    fetch(`http://echo.jsontest.com/key/${this.state.count}`)
+        .then((res) => res.json())
+        .then((json) => {
+          this.setState({
+            str: Array.concat(this.state.str, json.key)
+          });
+        });
+  }
+  render() {
+    return (
+        <button onClick={this.handleClick}>Click Me</button>        
+        <div> {this.state.str} </div>
+    );
+  }
+}

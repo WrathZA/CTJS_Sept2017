@@ -35,7 +35,9 @@ const images = {
   kurtosys: require("../assets/Kurtosys.png"),
   son: require("../assets/sonof.png"),
   JSCT: require("../assets/JSCT.jpg"),
-  callbackhell: require("../assets/callbackhell.jpg")
+  callbackhell: require("../assets/callbackhell.jpg"),
+  refval: require("../assets/refval.gif"),
+  refvaltype: require("../assets/refvaltype.gif")
 };
 
 preloader(images);
@@ -69,7 +71,7 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
           <Heading size={6} textColor="primary">JavaScript is most kindly described as a language that "just happened" and an enduring testament to human capacity to route around problems</Heading>
           <Appear>
-            <Text margin="50px 0 0" textColor="tertiary" caps bold>
+          <Text margin="50px 0 0" textColor="tertiary" caps bold>
               Properties
           </Text>
           </Appear>
@@ -89,20 +91,103 @@ export default class Presentation extends React.Component {
             <Appear>
               <ListItem>Interpreted</ListItem>
             </Appear>
+             <Appear>
+              <ListItem>*THE* transpile target </ListItem>
+            </Appear>
           </List>
           <Notes>
             <ul>
               <li>HL -> Abstraction.</li>
               <li>Dynamic -> Runtime not compiled.</li>
+              <li>Weakly Typed -> language can be extended at runtime</li>
             </ul>
-            It's an outlier in so much as it's a high level interpreted language that is often the targer of other compiled languages.  Newer version of the JS standard often be transpiled into a more common varient of JS.
+            <span>
+              It's an outlier in so much as it's a high level interpreted language that is often the targer of other compiled languages.  Newer version of the JS standard often be transpiled into a more common varient of JS.
 Different dialects like TypeScript that add addition features like strong typing or entirely different languages that have a completly different paradigm such as Elm or ClosureScript (LISP) can target it.
-It's the bytecode in the JVM sense or machine code in the native sense.
+Its the bytecode in the JVM sense or machine code in the native sense.</span>
+          </Notes>
+        </Slide>
+
+        <Slide >
+          <Heading size={4} textColor="secondary">NAMES?</Heading>
+          <Text margin="50px 0 0" textColor="tertiary" bold>
+              JS? JScript? ECMAScript?
+          </Text>
+          <Text margin="50px 0 0" textColor="tertiary" bold>
+              ES5? ES6? ES7/ES2016? ES.Next?
+          </Text>
+          <Appear>
+            <Text margin="50px 0 0" textColor="tertiary" bold>
+              Netscape saved us all.
+            </Text>
+          </Appear>
+          <Notes>
+            <ul>
+              <li>Browser Wars! MS was an alpha predator and literally evil.</li>
+              <li>Netscape Navigator 2.0 was released, featuring support for JavaScript.</li>
+              <li>Microsoft developed a compatible dialect of the language, naming it JScript</li>
+              <li>Netscape saved US via the European Computer Manufacturers Association (ECMA)</li>
+            </ul>
+          </Notes>
+        </Slide>
+
+         <Slide >
+          <Heading size={4} textColor="secondary">JavaScript Types</Heading>
+          <dl>
+            <dt>Boolean</dt>
+            <dt>Number</dt>
+            <dt>String</dt>
+            <dt>Null</dt>
+            <dt>Undefined</dt>
+            <dt>---</dt>
+            <dt>Object</dt>
+          </dl>
+            <Appear>
+              <Text margin="50px 0 0" textColor="tertiary" bold>
+                FUNCTIONS() are OBJECTS
+              </Text>
+            </Appear>
+          <Notes>
+            <ul>
+              <li>Intentionally ignore Symbols</li>
+              <li>Everything Immutable except Object</li>
+              <li>Functions are first-class objects, because they can have properties and methods just like any other object.</li>
+            </ul>
+          </Notes>
+        </Slide>
+
+        <Slide >
+          <Heading size={4} textColor="secondary">Difference Between Null & Undefined?</Heading>
+          <Appear>
+            <Heading size={3} textColor="secondary">Intention</Heading>
+          </Appear>
+        </Slide>
+
+        <Slide >
+          <Heading size={4} textColor="secondary">Value & Reference Types</Heading>
+           <Text margin="10px 0 0" textColor="tertiary" size={1} fit>
+            <Image src={images.refval.replace("/", "")} margin="30px auto 50px" height="150px" />
+          </Text>
+        </Slide>
+
+         <Slide >
+          <Heading size={4} textColor="secondary">Type Inference/Coercion</Heading>
+           <Text margin="10px 0 0" textColor="tertiary" size={1} fit>
+            <Image src={images.refvaltype.replace("/", "")} margin="30px auto 50px" height="150px" />
+          </Text>
+          <Notes>
+            <ul>
+              <li> “type casting,” when done explicitly, and “coercion” when done implicitly</li>
+            </ul>
           </Notes>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={3} textColor="secondary">Sync / Async?</Heading>
+        </Slide>
+
+        <Slide>
+          <Interactive />
         </Slide>
 
         <CodeSlide
@@ -119,10 +204,6 @@ It's the bytecode in the JVM sense or machine code in the native sense.
               { loc: [7, 10] }
           ]}
         />
-
-        <Slide>
-          <Interactive />
-        </Slide>
 
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={3} textColor="secondary">WTF is a Promise?</Heading>

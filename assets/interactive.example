@@ -6,14 +6,14 @@ export default class Interactive extends Component {
         .then((res) => res.json())
         .then((json) => {
           this.setState({
-            str: Array.concat(this.state.str, json.key)
+            arr: Array.concat(this.state.arr, json.key)
           });
         });
   }
   render() {
     return (
         <button onClick={this.handleClick}>Click Me</button>        
-        <div> {this.state.str} </div>
+        <div> {this.state.arr} </div>
     );
   }
 }

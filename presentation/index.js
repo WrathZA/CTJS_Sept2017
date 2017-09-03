@@ -37,7 +37,9 @@ const images = {
   JSCT: require("../assets/JSCT.jpg"),
   callbackhell: require("../assets/callbackhell.jpg"),
   refval: require("../assets/refval.gif"),
-  refvaltype: require("../assets/refvaltype.gif")
+  refvaltype: require("../assets/refvaltype.gif"),
+  prototypes: require("../assets/prototypes.png"),
+  queue: require("../assets/queue.jpg")
 };
 
 preloader(images);
@@ -98,8 +100,9 @@ export default class Presentation extends React.Component {
           <Notes>
             <ul>
               <li>HL -> Abstraction.</li>
-              <li>Dynamic -> Runtime not compiled.</li>
-              <li>Weakly Typed -> language can be extended at runtime</li>
+              <li>Dynamic -> Do what static langauges do at compile time at Runtime</li>
+              <li>Dynamic -> language can be extended at runtimee</li>
+              <li>Weakly Typed -> </li>
             </ul>
             <span>
               It's an outlier in so much as it's a high level interpreted language that is often the targer of other compiled languages.  Newer version of the JS standard often be transpiled into a more common varient of JS.
@@ -144,7 +147,12 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </dl>
             <Appear>
               <Text margin="50px 0 0" textColor="tertiary" bold>
-                FUNCTIONS() are OBJECTS
+                Arrays are objects
+              </Text>
+            </Appear>
+            <Appear>
+              <Text margin="50px 0 0" textColor="tertiary" bold>
+                *FUNCTIONS() are OBJECTS*
               </Text>
             </Appear>
           <Notes>
@@ -156,11 +164,40 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </Notes>
         </Slide>
 
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={3} textColor="primary">What's an Object?</Heading>
+           <Appear>
+              <Text margin="50px 0 0" textColor="tertiary" bold>
+                JavaScript objects are dynamic bags of properties
+              </Text>
+            </Appear>
+            <Notes>
+              Where each property is one of the types in the previous slide.
+            </Notes>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={3} textColor="secondary">Objects & Prototypes</Heading>
+          <Image src={images.prototypes.replace("/", "")} margin="30px auto 50px" height="550px" />
+          <Notes>
+            <ul>
+              <li>Confusing for OOP people.</li>
+              <li>No class implementation (the class keyword in ES2015, but is syntactical sugar</li>
+              <li>Objects are bags of properties but all link to a prototype seach </li>
+            </ul>
+          </Notes>
+        </Slide>
+
         <Slide >
-          <Heading size={4} textColor="secondary">Difference Between Null & Undefined?</Heading>
-          <Appear>
-            <Heading size={3} textColor="secondary">Intention</Heading>
-          </Appear>
+          <Heading size={2} textColor="secondary">Polyfills!</Heading>
+          <Text size={6} textColor="secondary"> Remember "dynamic" from the first slide?</Text>
+          <Text size={6} textColor="secondary"> We can extend the langauge at runtime.</Text>
+          <Text size={6} textColor="secondary"> by adding to existing prototypes</Text>
+          <CodePane textSize={16}
+            lang="js"
+            source={require("raw-loader!../assets/poly.example")}
+            margin="20px auto"
+          />
         </Slide>
 
         <Slide >
@@ -171,7 +208,8 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
         </Slide>
 
          <Slide >
-          <Heading size={4} textColor="secondary">Type Inference/Coercion</Heading>
+          <Heading size={4} textColor="secondary">Duck Typing At Runtime</Heading>
+           <Text size={6} textColor="secondary"> Remember "weakly typed"</Text>
            <Text margin="10px 0 0" textColor="tertiary" size={1} fit>
             <Image src={images.refvaltype.replace("/", "")} margin="30px auto 50px" height="150px" />
           </Text>
@@ -181,29 +219,6 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
             </ul>
           </Notes>
         </Slide>
-
-        <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={3} textColor="secondary">Sync / Async?</Heading>
-        </Slide>
-
-        <Slide>
-          <Interactive />
-        </Slide>
-
-        <CodeSlide
-          transition={[]}
-          lang="js"
-          code={require("raw-loader!../assets/interactive.example")}
-          ranges={[
-              { loc: [0, 19], title: "Some code" },
-              { loc: [12, 18], title: "React Render()" },
-              { loc: [1, 3] },
-              { loc: [4, 5] },
-              { loc: [4, 6] },
-              { loc: [4, 7] },
-              { loc: [7, 10] }
-          ]}
-        />
 
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={3} textColor="secondary">WTF is a Promise?</Heading>
@@ -246,12 +261,36 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           <Image src={images.callbackhell.replace("/", "")} margin="0px auto 50px" height="500px" />
         </Slide>
 
-        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-          <BlockQuote>
-            <Quote>Example Quote</Quote>
-            <Cite>Author</Cite>
-          </BlockQuote>
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={3} textColor="secondary">Sync / Async?</Heading>
+           <Image src={images.queue.replace("/", "")} height="400px" />
+           <Notes>
+            <ul>
+              <li>Movie ticket analogy... physical queue requires request to complete before starting next one.</li>
+            </ul>
+          </Notes>
         </Slide>
+
+        <Slide>
+          <Interactive />
+        </Slide>
+
+        <CodeSlide
+          transition={[]}
+          lang="js"
+          code={require("raw-loader!../assets/interactive.example")}
+          ranges={[
+              { loc: [0, 19], title: "Some code" },
+              { loc: [12, 18], title: "React Render()" },
+              { loc: [1, 3] },
+              { loc: [4, 5] },
+              { loc: [4, 6] },
+              { loc: [4, 7] },
+              { loc: [7, 10] },
+              { loc: [15, 16] }
+          ]}
+        />
+
 
       </Deck>
     );

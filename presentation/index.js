@@ -57,7 +57,7 @@ const theme = createTheme({
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
+      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} contentWidth={1800} contentHeight={1000}>
 
         <Slide transition={["zoom"]} bgColor="primary">
           <Image src={images.JSCT.replace("/", "")} margin="0px auto 50px" height="200px" />
@@ -77,7 +77,7 @@ export default class Presentation extends React.Component {
               Properties
           </Text>
           </Appear>
-          <List>
+          <List margin="0 0 0 250px">
             <Appear>
               <ListItem>High-Level</ListItem>
             </Appear>
@@ -85,7 +85,7 @@ export default class Presentation extends React.Component {
               <ListItem>Dynamic</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Weakly Typed</ListItem>
+              <ListItem>Weakly/Loosely Typed</ListItem>
             </Appear>
             <Appear>
               <ListItem>Object-Based</ListItem>
@@ -112,15 +112,15 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
         </Slide>
 
         <Slide >
-          <Heading size={4} textColor="secondary">NAMES?</Heading>
-          <Text margin="50px 0 0" textColor="tertiary" bold>
+          <Heading size={1} textColor="secondary">NAMES?</Heading>
+          <Text textSize="52" margin="50px 0 0" textColor="tertiary" bold>
               JS? JScript? ECMAScript?
           </Text>
-          <Text margin="50px 0 0" textColor="tertiary" bold>
+          <Text textSize="52" margin="50px 0 0" textColor="tertiary" bold>
               ES5? ES6? ES7/ES2016? ES.Next?
           </Text>
           <Appear>
-            <Text margin="50px 0 0" textColor="tertiary" bold>
+            <Text margin="50px 0 0" textColor="secondary" bold>
               Netscape saved us all.
             </Text>
           </Appear>
@@ -135,26 +135,28 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
         </Slide>
 
          <Slide >
-          <Heading size={4} textColor="secondary">JavaScript Types</Heading>
-          <dl>
-            <dt>Boolean</dt>
-            <dt>Number</dt>
-            <dt>String</dt>
-            <dt>Null</dt>
-            <dt>Undefined</dt>
-            <dt>---</dt>
-            <dt>Object</dt>
-          </dl>
-            <Appear>
-              <Text margin="50px 0 0" textColor="tertiary" bold>
-                Arrays are objects
-              </Text>
-            </Appear>
-            <Appear>
-              <Text margin="50px 0 0" textColor="tertiary" bold>
-                *FUNCTIONS() are OBJECTS*
-              </Text>
-            </Appear>
+          <Heading size={2} textColor="secondary">JavaScript Types</Heading>
+          <Text textSize="46" bold>
+            <dl>
+              <dt>Boolean</dt>
+              <dt>Number</dt>
+              <dt>String</dt>
+              <dt>Null</dt>
+              <dt>Undefined (*3 different types)</dt>
+              <dt>---</dt>
+              <dt>Object</dt>
+            </dl>
+          </Text>
+          <Appear>
+            <Text textSize="52" margin="50px 0 0" textColor="tertiary" bold>
+              Arrays are objects
+            </Text>
+          </Appear>
+          <Appear>
+            <Text textSize="52"  margin="50px 0 0" textColor="tertiary" bold>
+              *FUNCTIONS() are OBJECTS*
+            </Text>
+          </Appear>
           <Notes>
             <ul>
               <li>Intentionally ignore Symbols</li>
@@ -178,7 +180,7 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
 
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={3} textColor="secondary">Objects & Prototypes</Heading>
-          <Image src={images.prototypes.replace("/", "")} margin="30px auto 50px" height="550px" />
+          <Image src={images.prototypes.replace("/", "")} margin="30px auto 50px" height="650px" />
           <Notes>
             <ul>
               <li>Confusing for OOP people.</li>
@@ -189,32 +191,31 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
         </Slide>
 
         <Slide >
-          <Heading size={2} textColor="secondary">Polyfills!</Heading>
+          <Heading size={2} textColor="secondary" caps>Polyfills!</Heading>
           <Text size={6} textColor="secondary"> Remember "dynamic" from the first slide?</Text>
-          <Text size={6} textColor="secondary"> We can extend the langauge at runtime.</Text>
-          <Text size={6} textColor="secondary"> by adding to existing prototypes</Text>
-          <CodePane textSize={16}
+          <Text size={6} textColor="secondary"> We can extend the langauge at runtime by adding to existing prototypes</Text>
+          <CodePane textSize={36}
             lang="js"
             source={require("raw-loader!../assets/poly.example")}
             margin="20px auto"
           />
         </Slide>
 
-        <Slide >
-          <Heading size={4} textColor="secondary">Value & Reference Types</Heading>
-           <Text margin="10px 0 0" textColor="tertiary" size={1} fit>
-            <Image src={images.refval.replace("/", "")} margin="30px auto 50px" height="150px" />
+        <Slide maxWidth={1500} >
+          <Heading size={4} textColor="secondary" fit>Value & Reference Types</Heading>
+           <Text margin="10px 0 0" textColor="tertiary" size={1} fill>
+            <Image src={images.refval.replace("/", "")} margin="30px auto 50px" height="800px" />
           </Text>
         </Slide>
 
          <Slide >
-          <Heading size={4} textColor="secondary">Duck Typing At Runtime</Heading>
-           <Text size={6} textColor="secondary"> Remember "weakly typed"</Text>
-           <Text margin="10px 0 0" textColor="tertiary" size={1} fit>
-            <Image src={images.refvaltype.replace("/", "")} margin="30px auto 50px" height="150px" />
+          <Heading size={2} textColor="secondary">Duck Typing At Runtime</Heading>
+           <Text margin="10px 0 0" textColor="tertiary" size={1} fill>
+            <Image src={images.refvaltype.replace("/", "")} height="650px" />
           </Text>
           <Notes>
             <ul>
+              <li>Remember "weakly/loosely typed</li>
               <li> “type casting,” when done explicitly, and “coercion” when done implicitly</li>
             </ul>
           </Notes>
@@ -290,6 +291,15 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
               { loc: [15, 16] }
           ]}
         />
+
+         <Slide >
+          <Heading size={2} textColor="secondary" caps>REDUCE</Heading>
+          <CodePane textSize={36}
+            lang="js"
+            source={require("raw-loader!../assets/reduce1.example")}
+            margin="20px auto"
+          />
+        </Slide>
 
 
       </Deck>

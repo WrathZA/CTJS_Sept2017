@@ -1,9 +1,5 @@
-/*
-This method has been added to the ECMAScript 2015 specification and may not be 
-available in all JavaScript implementations yet. However, you can polyfill 
-Array.prototype.find with the following snippet:
-*/
-
+/*This method has been added to the ECMAScript 2015 specification and may not be available in all JavaScript implementations yet. However, you can polyfill 
+Array.prototype.find with the following snippet:*/
 // https://tc39.github.io/ecma262/#sec-array.prototype.find
 if (!Array.prototype.find) {
   Object.defineProperty(Array.prototype, 'find', {

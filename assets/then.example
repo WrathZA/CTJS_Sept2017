@@ -1,0 +1,7 @@
+var promise1 = fetchFromInterWebs();
+var promise2 = fetchFromCache();
+
+Promise.race([promise1,promise2])
+    .then(function(firstOne){
+        //Do Stuff with whatever comes back first!
+    });

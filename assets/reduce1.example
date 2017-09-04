@@ -1,9 +1,9 @@
-var arr = [1,2,3,4,5,6];
+let arr = [1,2,3,4,5,6];
 
-var reducerCallback = function(accumulator, current) {
+const reducerCallback = function(accumulator, current) { //SUM!
   return accumulator + current;
 }
 
-var ret = arr.reduce(reducerCallback); //Array.prototype.reduce()
+let ret = arr.reduce(reducerCallback); //Array.prototype.reduce()
 
 console.log(ret); //21

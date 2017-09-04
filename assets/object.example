@@ -1,0 +1,17 @@
+var thisIsAObjLiteral = {
+  number: 1,
+  string: "hello",
+  moreNumbers: 1.2,
+  bool: false,
+  array: [1,2,3, "YOLO"],
+  obj: {
+    yolo: "247"
+  },
+  func: function(){
+    return {
+      moreFuncs: function(x,y,z) {
+        return x(y,x);
+      }
+    }
+  }
+}

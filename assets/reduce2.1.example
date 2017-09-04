@@ -6,9 +6,7 @@ var reducerCallback = function (accumulator, current) {
   } 
   return accumulator;
 }
-
+//*** NOTE: We're Setting the initial value
 var ret = arr.reduce(reducerCallback, []); //Array.prototype.reduce()
 
-console.log(ret); //21
-
-//https://randomuser.me/api/?results=25&inc=gender,name,nat,dob
+console.log(ret); //[1,3,5]

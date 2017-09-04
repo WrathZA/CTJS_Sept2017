@@ -1,0 +1,10 @@
+var items = [1, 2, 3, 4, 5, 6];
+
+var timesHundred = function (item) {
+  return item * 100;
+}
+
+var itemsTimesHundred = items.map(timesHundred);
+
+console.log(itemsTimesHundred); // 100, 200, 300, 400, 500, 600]
+console.log(items); // [1, 2, 3, 4, 5, 6] *THE SAME*

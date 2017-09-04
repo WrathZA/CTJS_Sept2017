@@ -44,6 +44,8 @@ So it has a call stack, heap, an event loop, callback queue
 http://latentflip.com/loupe
 
 
+the differences between equality (==) and identity (===) operators
+
 langauge!
 
 var x = 1

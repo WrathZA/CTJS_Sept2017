@@ -192,6 +192,26 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
             </Notes>
         </Slide>
 
+        <Slide>
+          <Heading size={4} textColor="secondary" fit caps>Value & Reference Types</Heading>
+           <Text margin="10px 0 0" textColor="tertiary" size={1} fill>
+            <Image src={images.refval.replace("/", "")} margin="30px auto 50px" height="800px" />
+          </Text>
+        </Slide>
+
+         <Slide >
+          <Heading size={2} textColor="secondary" caps>Duck Typing At Runtime</Heading>
+           <Text margin="10px 0 0" textColor="tertiary" size={1} fill>
+            <Image src={images.refvaltype.replace("/", "")} height="650px" />
+          </Text>
+          <Notes>
+            <ul>
+              <li>Remember "weakly/loosely typed</li>
+              <li> “type casting,” when done explicitly, and “coercion” when done implicitly</li>
+            </ul>
+          </Notes>
+        </Slide>
+
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
           <Heading size={3} textColor="primary">FUNCTIONS() ARE FIRST CLASS CITIZENS</Heading>
           <Text margin="50px" textColor="tertiary" caps textSize={66}>This bares reiterating</Text>
@@ -259,26 +279,6 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
             source={require("raw-loader!../assets/poly.example")}
             margin="20px auto"
           />
-        </Slide>
-
-        <Slide maxWidth={1500} >
-          <Heading size={4} textColor="secondary" fit caps>Value & Reference Types</Heading>
-           <Text margin="10px 0 0" textColor="tertiary" size={1} fill>
-            <Image src={images.refval.replace("/", "")} margin="30px auto 50px" height="800px" />
-          </Text>
-        </Slide>
-
-         <Slide >
-          <Heading size={2} textColor="secondary" caps>Duck Typing At Runtime</Heading>
-           <Text margin="10px 0 0" textColor="tertiary" size={1} fill>
-            <Image src={images.refvaltype.replace("/", "")} height="650px" />
-          </Text>
-          <Notes>
-            <ul>
-              <li>Remember "weakly/loosely typed</li>
-              <li> “type casting,” when done explicitly, and “coercion” when done implicitly</li>
-            </ul>
-          </Notes>
         </Slide>
 
          <Slide transition={["zoom"]} bgColor="secondary" textColor="primary">

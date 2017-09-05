@@ -15,7 +15,8 @@ import {
   Appear,
   List,
   ListItem,
-  CodePane
+  CodePane,
+  S
 } from "spectacle";
 
 import CodeSlide from "spectacle-code-slide";
@@ -39,7 +40,8 @@ const images = {
   refval: require("../assets/refval.gif"),
   refvaltype: require("../assets/refvaltype.gif"),
   prototypes: require("../assets/prototypes.png"),
-  queue: require("../assets/queue.jpg")
+  queue: require("../assets/queue.jpg"),
+  hipster: require("../assets/hipster.jpg")
 };
 
 preloader(images);
@@ -57,7 +59,7 @@ const theme = createTheme({
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} contentWidth={1800} contentHeight={1000}>
+      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} contentWidth={1800} contentHeight={1000} progress="none">
 
         <Slide transition={["zoom"]} bgColor="primary">
           <Image src={images.JSCT.replace("/", "")} margin="0px auto 50px" height="200px" />
@@ -71,30 +73,30 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-          <Heading size={6} textColor="primary">JavaScript is most kindly described as a language that "just happened" and an enduring testament to human capacity to route around problems</Heading>
+          <Heading size={4} textColor="primary">JavaScript is most kindly described as a language that "just happened" and an enduring testament to human capacity to route around problems</Heading>
           <Appear>
-          <Text margin="50px 0 0" textColor="tertiary" caps bold>
+          <Text textSize={66} margin="50px 0 0" textColor="tertiary" caps bold>
               Properties
           </Text>
           </Appear>
-          <List margin="0 0 0 250px">
+          <List margin="30px 0 0 250px">
             <Appear>
-              <ListItem>High-Level</ListItem>
+              <ListItem textSize={56}>High-Level</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Dynamic</ListItem>
+              <ListItem textSize={56}>Dynamic</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Weakly/Loosely Typed</ListItem>
+              <ListItem textSize={56}>Weakly/Loosely Typed</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Object-Based</ListItem>
+              <ListItem textSize={56}>Object-Based</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Interpreted</ListItem>
+              <ListItem textSize={56}>Interpreted</ListItem>
             </Appear>
              <Appear>
-              <ListItem>*THE* transpile target </ListItem>
+              <ListItem textSize={56}>*THE* transpile target </ListItem>
             </Appear>
           </List>
           <Notes>
@@ -135,7 +137,7 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
         </Slide>
 
          <Slide >
-          <Heading size={2} textColor="secondary">JavaScript Types</Heading>
+          <Heading size={2} textColor="secondary" caps>JavaScript Types</Heading>
           <Text textSize="46" bold>
             <dl>
               <dt>Boolean</dt>
@@ -148,12 +150,12 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
             </dl>
           </Text>
           <Appear>
-            <Text textSize="52" margin="50px 0 0" textColor="tertiary" bold>
+            <Text textSize="80" margin="50px 0 0" textColor="tertiary" bold>
               Arrays are objects
             </Text>
           </Appear>
           <Appear>
-            <Text textSize="52"  margin="50px 0 0" textColor="tertiary" bold>
+            <Text textSize="100"  margin="50px 0 0" textColor="tertiary" bold>
               *FUNCTIONS() are OBJECTS*
             </Text>
           </Appear>
@@ -179,11 +181,10 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
         </Slide>
 
         <Slide>
-          <Heading>Functions are FIRST CLASS CITIZENS</Heading>
-          <Text>This bares reiterating</Text>
-          <Text>They're objects which means they can be passed as arguments</Text>
+          <Heading size={3} textColor="tertiary">FUNCTIONS() ARE FIRST CLASS CITIZENS</Heading>
+          <Text caps textSize={56}>This bares reiterating</Text>
+          <Text margin="50px auto">They're objects which means they can be passed as arguments and variables</Text>
           <Text>They can be returned from other functions</Text>
-          <Text>HIGHER ORDER FUNCTIONS</Text>
           <Notes>
             <ul>
               <li>Why is out of scope for this talk.</li>
@@ -194,8 +195,8 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={3} textColor="secondary">Objects & Prototypes</Heading>
-          <Image src={images.prototypes.replace("/", "")} margin="30px auto 50px" height="650px" />
+          <Heading size={3} textColor="secondary" caps>Objects & Prototypes</Heading>
+          <Image src={images.prototypes.replace("/", "")} margin="30px auto 50px" height="800px" />
           <Notes>
             <ul>
               <li>Confusing for OOP people.</li>
@@ -206,16 +207,34 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
         </Slide>
 
         <Slide>
-          <Heading size={2} textColor="secondary" caps>Prototypes & new Object()</Heading>
-          <CodePane textSize={36}
+          <Heading size={2} textColor="secondary" caps>1. Prototypes & new Object()</Heading>
+          <CodePane textSize={34}
             lang="js"
             source={require("raw-loader!../assets/proto.example")}
             margin="20px auto"
           />
         </Slide>
 
+        <Slide>
+          <Heading size={2} textColor="secondary" caps>2. Prototypes & new Object()</Heading>
+          <CodePane textSize={34}
+            lang="js"
+            source={require("raw-loader!../assets/proto1.example")}
+            margin="20px auto"
+          />
+        </Slide>
+
+        <Slide>
+          <Heading size={2} textColor="secondary" caps>3. Prototypes & new Object()</Heading>
+          <CodePane textSize={34}
+            lang="js"
+            source={require("raw-loader!../assets/proto2.example")}
+            margin="20px auto"
+          />
+        </Slide>
+
         <Slide >
-          <Heading size={2} textColor="secondary" caps>Polyfills!</Heading>
+          <Heading size={2} textColor="secondary" caps>Polyfills! ∴ Prototypes!</Heading>
           <Text size={6} textColor="secondary"> Remember "dynamic" from the first slide?</Text>
           <Text size={6} textColor="secondary"> We can extend the langauge at runtime by adding to existing prototypes</Text>
           <CodePane textSize={36}
@@ -226,14 +245,14 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
         </Slide>
 
         <Slide maxWidth={1500} >
-          <Heading size={4} textColor="secondary" fit>Value & Reference Types</Heading>
+          <Heading size={4} textColor="secondary" fit caps>Value & Reference Types</Heading>
            <Text margin="10px 0 0" textColor="tertiary" size={1} fill>
             <Image src={images.refval.replace("/", "")} margin="30px auto 50px" height="800px" />
           </Text>
         </Slide>
 
          <Slide >
-          <Heading size={2} textColor="secondary">Duck Typing At Runtime</Heading>
+          <Heading size={2} textColor="secondary" caps>Duck Typing At Runtime</Heading>
            <Text margin="10px 0 0" textColor="tertiary" size={1} fill>
             <Image src={images.refvaltype.replace("/", "")} height="650px" />
           </Text>
@@ -246,22 +265,22 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={3} textColor="secondary">WTF is a Promise?</Heading>
+          <Heading size={1} textColor="secondary" caps>WTF is a Promise?</Heading>
           <Appear>
-            <Text size={6} textColor="secondary"> Something you asked for, happening at some point</Text>
+            <Text textSize={56} textColor="secondary"> Something you asked for, happening at some point</Text>
           </Appear>
           <Appear>
-            <Heading size={5} textColor="secondary">State a promise can exist in?</Heading>
+            <Heading margin="50px 0 0 0" size={5} textColor="secondary">State a promise can exist in?</Heading>
           </Appear>
-          <List>
+          <List  margin="20px 0 0 450px">
             <Appear>
-              <ListItem>Resolved</ListItem>
+              <ListItem textSize={56}>Resolved</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Broken</ListItem>
+              <ListItem textSize={56}>Broken</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Waiting... (Nothing yet)</ListItem>
+              <ListItem textSize={56}>Waiting... (Nothing yet)</ListItem>
             </Appear>
           </List>
           <Notes>
@@ -272,9 +291,19 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </Notes>
         </Slide>
 
+        <Slide >
+          <Heading size={2} textColor="secondary" caps>thenable?</Heading>
+          <Text textSize={52} margin="10px 0 0" textColor="tertiary" bold> Object/Function with a then() function.</Text>
+          <CodePane textSize={30}
+            lang="js"
+            source={require("raw-loader!../assets/then.example")}
+            margin="20px auto"
+          />
+        </Slide>
+
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-          <Heading size={6} textColor="primary">Why are promises useful?</Heading>
-          <CodePane textSize={20}
+          <Heading size={3} textColor="primary">Why are promises useful?</Heading>
+          <CodePane textSize={36}
             lang="js"
             source={require("raw-loader!../assets/callbackhell.example")}
             margin="20px auto"
@@ -282,14 +311,27 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
         </Slide>
 
          <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-          <Heading size={6} textColor="primary">CALLBACK HELL</Heading>
-          <Image src={images.callbackhell.replace("/", "")} margin="0px auto 50px" height="500px" />
+          <Heading size={3} textColor="primary">CALLBACK HELL</Heading>
+          <Image src={images.callbackhell.replace("/", "")} margin="0px auto 50px" height="800px" />
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={1} textColor="primary">THERE IS NOTHING WRONG WITH USING CALLBACKS</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={3} textColor="primary">Why are promises useful?</Heading>
+          <CodePane textSize={36}
+            lang="js"
+            source={require("raw-loader!../assets/promise.example")}
+            margin="20px auto"
+          />
         </Slide>
 
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={3} textColor="secondary">Sync / Async?</Heading>
-           <Image src={images.queue.replace("/", "")} height="400px" />
-           <Notes>
+          <Heading size={1} textColor="secondary">SYNC / ASYNC?</Heading>
+          <Image margin="50px auto" src={images.queue.replace("/", "")} height="600px" />
+          <Notes>
             <ul>
               <li>Movie ticket analogy... physical queue requires request to complete before starting next one.</li>
             </ul>
@@ -316,11 +358,58 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           ]}
         />
 
-         <Slide >
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={1} textColor="primary">MAP?</Heading>
+          <Heading size={1} textColor="primary">REDUCE?</Heading>
+          <Heading size={1} textColor="primary">FILTER?</Heading>
+        </Slide>
+
+         <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={2} textColor="secondary">FUNCTIONAL?!?!</Heading>
+          <Image margin="50px auto" src={images.hipster.replace("/", "")} height="700px" />
+        </Slide>
+
+        <Slide >
           <Heading size={2} textColor="secondary" caps>REDUCE</Heading>
           <CodePane textSize={36}
             lang="js"
             source={require("raw-loader!../assets/reduce1.example")}
+            margin="20px auto"
+          />
+        </Slide>
+
+         <Slide transition="fade">
+          <Heading size={2} textColor="secondary" caps>REDUCE</Heading>
+          <CodePane textSize={36}
+            lang="js"
+            source={require("raw-loader!../assets/reduce2.example")}
+            margin="20px auto"
+          />
+        </Slide>
+
+        <Slide transition="fade">
+          <Heading size={2} textColor="secondary" caps> <S type="strikethrough">REDUCE</S> FILTER</Heading>
+          <CodePane textSize={36}
+            lang="js"
+            source={require("raw-loader!../assets/reduce2.1.example")}
+            margin="20px auto"
+          />
+        </Slide>
+
+         <Slide >
+          <Heading size={2} textColor="secondary" caps>FILTER</Heading>
+          <CodePane textSize={36}
+            lang="js"
+            source={require("raw-loader!../assets/filter1.example")}
+            margin="20px auto"
+          />
+        </Slide>
+
+         <Slide >
+          <Heading size={2} textColor="secondary" caps>MAP</Heading>
+          <CodePane textSize={36}
+            lang="js"
+            source={require("raw-loader!../assets/map1.example")}
             margin="20px auto"
           />
         </Slide>

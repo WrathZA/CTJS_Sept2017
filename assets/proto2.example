@@ -5,11 +5,6 @@ function _new(func, args) {
   return obj;
 }
 
-function Point(x, y) {
-  this.x = x;
-  this.y = y
-}
-
 Point.prototype.logPoint = function() {
   console.log('x is', this.x, 'and y is', this.y); 
 }

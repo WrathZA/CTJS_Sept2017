@@ -1,0 +1,7 @@
+var p1 = Promise.resolve(3);
+var p2 = fetchSomeStuff("https://api.stuff.com");
+var p3 = "YOLO!"
+
+Promise.all([p1, p2, p3]).then(values => { 
+  console.log(values); // [3, someStuffObject, "YOLO!"] 
+});

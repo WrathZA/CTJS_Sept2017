@@ -38,16 +38,16 @@ export default class Interactive extends Component {
   render() {
     return (
       <div>
-        <CodePane textSize={24}
+        <div>
+            {this.state.arr.toString()}
+        </div>
+        <CodePane textSize={26}
           lang="js"
           source={require("raw-loader!../assets/interactive.example")}
           margin="20px auto"
         />
         <button type="button" onClick={this.handleClick}>Click Me</button>
         <button type="button" onClick={this.handleReset}>Reset</button>
-        <div>
-            {this.state.arr.toString()}
-        </div>
       </div>
     );
   }

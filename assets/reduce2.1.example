@@ -8,5 +8,4 @@ var reducerCallback = function (accumulator, current) {
 }
 //*** NOTE: We're Setting the initial value
 var ret = arr.reduce(reducerCallback, []); //Array.prototype.reduce()
-
 console.log(ret); //[1,3,5]

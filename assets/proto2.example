@@ -1,0 +1,18 @@
+function _new(func, args) {
+  let obj = {};
+  Object.setPrototypeOf(obj, func.prototype);
+  func.apply(obj, args);
+  return obj;
+}
+
+function Point(x, y) {
+  this.x = x;
+  this.y = y
+}
+
+Point.prototype.logPoint = function() {
+  console.log('x is', this.x, 'and y is', this.y); 
+}
+
+let p = _new(Point, [5,6]);
+p.logPoint() // x is 5 and y is 6

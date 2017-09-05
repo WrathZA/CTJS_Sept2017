@@ -35,7 +35,7 @@ require("../assets/override.css");
 const images = {
   kurtosys: require("../assets/Kurtosys.png"),
   son: require("../assets/sonof.png"),
-  JSCT: require("../assets/JSCT.jpg"),
+  JSCT: require("../assets/JS__meetup-logo.png"),
   callbackhell: require("../assets/callbackhell.jpg"),
   refval: require("../assets/refval.gif"),
   refvaltype: require("../assets/refvaltype.gif"),
@@ -62,14 +62,13 @@ export default class Presentation extends React.Component {
       <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} contentWidth={1800} contentHeight={1000} progress="none">
 
         <Slide transition={["zoom"]} bgColor="primary">
-          <Image src={images.JSCT.replace("/", "")} margin="0px auto 50px" height="200px" />
+          <Image src={images.JSCT.replace("/", "")} margin="0px auto 50px" height="500px" />
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             JavaScript Concepts
           </Heading>
           <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
             Cape Town JS - September 2017
           </Text>
-          <Image src={images.kurtosys.replace("/", "")} margin="30px auto 50px" height="150px" />
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">

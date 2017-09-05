@@ -1,10 +1,10 @@
 var arr = [1,2,3,4,5,6];
 
-var reducerCallback = function (accumulator, current) {
+var reducer = function (accumulator, current) {
   if (current % 2) {
     accumulator.push(current);
   } 
   return accumulator;
 }
 //*** NOTE: We're Setting the initial value
-var ret = arr.reduce(reducerCallback, []); //Array.prototype.reduce()
+var ret = arr.reduce(reducer, []); //Array.prototype.reduce()

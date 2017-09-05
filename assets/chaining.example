@@ -1,1 +1,12 @@
-//CHAINING EXAMPLE
+var AccessToOfficeTimeSeries = [{
+    tagId: 32432434,
+    door: "Floor 2 Door 8",
+    stamp: "2017-09-05T22:08:42+02:00"
+}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
+
+let phuzaDetective = AccessToOfficeTimeSeries
+    .Filter(onlyKurtosysFunc)
+    .Filter(fridayOnlyFilterFunc)
+    .Map(tagIdToPerson)
+    .Reduce(countFridays);
+

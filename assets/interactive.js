@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CodePane } from "spectacle";
+import { CodePane, Text } from "spectacle";
 
 import fetch from "isomorphic-fetch";
 import sleep from "sleep-promise";
@@ -8,7 +8,7 @@ export default class Interactive extends Component {
   constructor() {
     super();
     this.state = {
-      arr: [0],
+      arr: [],
       count: 1
     };
     this.handleClick = this.handleClick.bind(this);
@@ -38,9 +38,9 @@ export default class Interactive extends Component {
   render() {
     return (
       <div>
-        <div>
+        <Text textSize={70} textColor="primary">
             {this.state.arr.toString()}
-        </div>
+        </Text>
         <CodePane textSize={26}
           lang="js"
           source={require("raw-loader!../assets/interactive.example")}

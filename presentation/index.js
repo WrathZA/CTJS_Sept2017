@@ -3,11 +3,8 @@ import React from "react";
 
 // Import Spectacle Core tags
 import {
-  BlockQuote,
-  Cite,
   Deck,
   Heading,
-  Quote,
   Slide,
   Text,
   Image,
@@ -43,7 +40,11 @@ const images = {
   queue: require("../assets/queue.jpg"),
   hipster: require("../assets/hipster.jpg"),
   thanks: require("../assets/thanks.gif"),
-  devconf: require("../assets/devconf.png")
+  devconf: require("../assets/devconf.png"),
+  eventloop: require("../assets/EventLoopRepeat.gif"),
+  loopcat: require("../assets/loop-cat.gif"),
+  eventloopstatic: require("../assets/eventloopstatic.png"),
+  mutation: require("../assets/mutation.jpg")
 };
 
 preloader(images);
@@ -61,7 +62,7 @@ const theme = createTheme({
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme} contentWidth={1800} contentHeight={1000} progress="none">
+      <Deck controls= {false} transition={["zoom", "slide"]} transitionDuration={500} theme={theme} contentWidth={1800} contentHeight={1000} progress="none">
 
         <Slide transition={["zoom"]} bgColor="primary">
           <Image src={images.JSCT.replace("/", "")} margin="0px auto 50px" height="500px" />
@@ -83,11 +84,11 @@ export default class Presentation extends React.Component {
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
           <Heading size={4} textColor="primary">JavaScript is most kindly described as a language that "just happened" and an enduring testament to human capacity to route around problems</Heading>
           <Appear>
-          <Text textSize={66} margin="50px 0 0" textColor="tertiary" caps bold>
+          <Text textSize={86} margin="50px 0 0" textColor="tertiary" caps bold>
               Properties
           </Text>
           </Appear>
-          <List margin="30px 0 0 250px">
+          <List margin="30px 0 0 600px">
             <Appear>
               <ListItem textSize={56}>High-Level</ListItem>
             </Appear>
@@ -144,17 +145,17 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </Notes>
         </Slide>
 
-         <Slide >
-          <Heading size={2} textColor="secondary" caps>JavaScript Types</Heading>
-          <Text textSize="46" bold>
+          <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={2} textColor="primary" caps>JavaScript Types</Heading>
+          <Text textSize="66" textColor="primary" bold>
             <dl>
               <dt>Boolean</dt>
               <dt>Number</dt>
               <dt>String</dt>
               <dt>Null</dt>
-              <dt>Undefined (*3 different types)</dt>
+              <dt>Undefined</dt>
               <dt>---</dt>
-              <dt>Object</dt>
+              <dt>Object {"{"} {"}"}</dt>
             </dl>
           </Text>
           <Appear>
@@ -163,7 +164,7 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
             </Text>
           </Appear>
           <Appear>
-            <Text textSize="100"  margin="50px 0 0" textColor="tertiary" bold>
+            <Text textSize="100" margin="50px 0 0" textColor="tertiary" bold>
               *FUNCTIONS() are OBJECTS*
             </Text>
           </Appear>
@@ -176,23 +177,31 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </Notes>
         </Slide>
 
-        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-          <Heading size={1} textColor="primary">What's an Object?</Heading>
-           <Appear>
-              <Text textSize={52} margin="50px 0 0" textColor="tertiary" bold>
-                JavaScript objects are dynamic bags of properties
-              </Text>
-            </Appear>
-            <Notes>
-              Where each property is one of the types in the previous slide.
+         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={3} textColor="primary">What's an Object? {"{"} {"}"}</Heading>
+          <Text margin="25px 0 0" textColor="tertiary" bold>
+            JavaScript objects are dynamic bags of properties
+            </Text>
+          <CodePane textSize={32}
+            lang="js"
+            source={require("raw-loader!../assets/object.example")}
+            margin="20px"
+          />
+          <Notes>
+            Where each property is one of the types in the previous slide.
             </Notes>
         </Slide>
 
-        <Slide>
-          <Heading size={3} textColor="tertiary">FUNCTIONS() ARE FIRST CLASS CITIZENS</Heading>
-          <Text caps textSize={56}>This bares reiterating</Text>
-          <Text margin="50px auto">They're objects which means they can be passed as arguments and variables</Text>
-          <Text>They can be returned from other functions</Text>
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={3} textColor="primary">FUNCTIONS() ARE FIRST CLASS CITIZENS</Heading>
+          <Text margin="50px" textColor="tertiary" caps textSize={66}>This bares reiterating</Text>
+          <Text textSize={66} textColor="tertiary" margin="50px auto">They're objects which means they can be passed as arguments and variables</Text>
+          <Text textSize={66} textColor="tertiary"> They can be returned from other functions</Text>
+          <Appear>
+            <Text textSize="100" margin="50px 0 0" textColor="primary" bold>
+              MATTERS WHY?
+            </Text>
+          </Appear>
           <Notes>
             <ul>
               <li>Why is out of scope for this talk.</li>
@@ -272,6 +281,19 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </Notes>
         </Slide>
 
+         <Slide transition={["zoom"]} bgColor="secondary" textColor="primary">
+           <Heading size={2} textColor="primary" caps>THE EVENT LOOP</Heading>
+           <Image margin="50px" src={images.loopcat.replace("/", "")} height="450px" />
+         </Slide>
+
+         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+           <Image src={images.eventloopstatic.replace("/", "")} height="900px" />
+         </Slide>
+
+         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+           <Image src={images.eventloop.replace("/", "")} height="900px" />
+         </Slide>
+
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={1} textColor="secondary" caps>WTF is a Promise?</Heading>
           <Appear>
@@ -280,7 +302,7 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           <Appear>
             <Heading margin="50px 0 0 0" size={5} textColor="secondary">State a promise can exist in?</Heading>
           </Appear>
-          <List  margin="20px 0 0 450px">
+          <List margin="20px 0 0 450px">
             <Appear>
               <ListItem textSize={56}>Resolved</ListItem>
             </Appear>
@@ -299,10 +321,10 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </Notes>
         </Slide>
 
-        <Slide >
-          <Heading size={1} textColor="secondary" caps>thenable?</Heading>
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={1} textColor="primary" caps>thenable?</Heading>
           <Text textSize={62} margin="10px 0 0" textColor="tertiary" bold> Object/Function with a then() function.</Text>
-          <CodePane textSize={38}
+          <CodePane textSize={42}
             lang="js"
             source={require("raw-loader!../assets/then.example")}
             margin="20px auto"
@@ -310,7 +332,7 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-          <Heading size={3} textColor="primary">Why are promises useful?</Heading>
+          <Heading size={3} textColor="primary" caps>Before Promises</Heading>
           <CodePane textSize={36}
             lang="js"
             source={require("raw-loader!../assets/callbackhell.example")}
@@ -346,7 +368,7 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </Notes>
         </Slide>
 
-        <Slide>
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
           <Interactive />
         </Slide>
 
@@ -378,8 +400,8 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           <Image margin="50px auto" src={images.hipster.replace("/", "")} height="700px" />
         </Slide>
 
-        <Slide >
-          <Heading size={2} textColor="secondary" caps>REDUCE</Heading>
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={2} textColor="primary" caps>REDUCE</Heading>
           <CodePane textSize={44}
             lang="js"
             source={require("raw-loader!../assets/reduce1.example")}
@@ -387,8 +409,8 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           />
         </Slide>
 
-         <Slide transition="fade">
-          <Heading size={2} textColor="secondary" caps>REDUCE</Heading>
+         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={2} textColor="primary" caps>REDUCE</Heading>
           <CodePane textSize={44}
             lang="js"
             source={require("raw-loader!../assets/reduce2.example")}
@@ -396,8 +418,8 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           />
         </Slide>
 
-        <Slide transition="fade">
-          <Heading size={2} textColor="secondary" caps> <S type="strikethrough">REDUCE</S> FILTER</Heading>
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={2} textColor="primary" caps> <S type="strikethrough">REDUCE</S> FILTER</Heading>
           <CodePane textSize={42}
             lang="js"
             source={require("raw-loader!../assets/reduce2.1.example")}
@@ -405,8 +427,8 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           />
         </Slide>
 
-         <Slide >
-          <Heading size={2} textColor="secondary" caps>FILTER</Heading>
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={2} textColor="primary" caps>FILTER</Heading>
           <CodePane textSize={44}
             lang="js"
             source={require("raw-loader!../assets/filter1.example")}
@@ -414,8 +436,8 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           />
         </Slide>
 
-         <Slide >
-          <Heading size={2} textColor="secondary" caps>MAP</Heading>
+         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={2} textColor="primary" caps>MAP</Heading>
           <CodePane textSize={44}
             lang="js"
             source={require("raw-loader!../assets/map1.example")}
@@ -423,8 +445,20 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           />
         </Slide>
 
-        <Slide >
-          <Heading size={2} textColor="secondary" caps>CHAINING</Heading>
+         <Slide transition={["zoom"]} bgColor="secondary" textColor="primary">
+           <Heading size={2} textColor="primary" caps>mutation</Heading>
+           <Image margin="50px" src={images.mutation.replace("/", "")} height="750px" />
+           <Notes>
+             <ul>
+               <li>Immutablity allows multiple simultaneous reads</li>
+               <li>Clusters can access and work in parallel</li>
+               <li>nosql, hadoop, time-series data etc</li>
+             </ul>
+           </Notes>
+         </Slide>
+
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={2} textColor="primary" caps>CHAINING</Heading>
           <CodePane textSize={44}
             lang="js"
             source={require("raw-loader!../assets/chaining.example")}
@@ -439,6 +473,16 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
          <Slide transition={["zoom"]} bgColor="secondary" textColor="primary">
           <Image src={images.devconf.replace("/", "")} margin="0px auto 50px" height="600px" />
           <Heading size={2} textColor="primary"> Call for Speakers Open!</Heading>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Text textColor="primary">
+               https://leanpub.com/javascriptallongesix/
+               http://eloquentjavascript.net
+               http://speakingjs.com
+               https://developer.mozilla.org/en-US/docs/Web/JavaScript
+               https://devdocs.io/
+          </Text>
         </Slide>
 
       </Deck>

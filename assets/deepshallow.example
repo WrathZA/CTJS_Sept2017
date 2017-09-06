@@ -1,0 +1,11 @@
+var x = {
+    number: 1
+};
+
+console.log(x.number); //Output: 1
+
+var y = x;
+
+y.number = 2;
+
+console.log(y.number); //Output: ???

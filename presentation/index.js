@@ -72,6 +72,11 @@ export default class Presentation extends React.Component {
           <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
             Cape Town JS - September 2017
           </Text>
+        <Notes>
+          <ul>
+            <li>Don't forget your water.</li>
+          </ul>
+        </Notes>
         </Slide>
 
          <Slide transition={["zoom"]} bgColor="primary">
@@ -79,6 +84,12 @@ export default class Presentation extends React.Component {
             HELLO!
           </Heading>
           <Image margin="50px auto" src={images.son.replace("/", "")} margin="0px auto 50px" height="700px" />
+          <Notes>
+            <ul>
+              <li>Some announcements.</li>
+              <li>Please hold your questions till the end or come chat after.</li>
+            </ul>
+          </Notes>
         </Slide>
 
          <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
@@ -90,6 +101,11 @@ export default class Presentation extends React.Component {
             <ListItem textSize={56}>Promises</ListItem>
             <ListItem textSize={56}>Functional JS and Concepts</ListItem>
           </List>
+          <Notes>
+            <ul>
+              <li>2:00</li>
+            </ul>
+          </Notes>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
@@ -125,11 +141,8 @@ export default class Presentation extends React.Component {
               <li>Dynamic -> Do what static langauges do at compile time at Runtime</li>
               <li>Dynamic -> language can be extended at runtimee</li>
               <li>Weakly Typed -> </li>
+              <li>transpilation -> compile + translate. (babel)</li>
             </ul>
-            <span>
-              It's an outlier in so much as it's a high level interpreted language that is often the targer of other compiled languages.  Newer version of the JS standard often be transpiled into a more common varient of JS.
-Different dialects like TypeScript that add addition features like strong typing or entirely different languages that have a completly different paradigm such as Elm or ClosureScript (LISP) can target it.
-Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </Notes>
         </Slide>
 
@@ -148,13 +161,13 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </Appear>
           <Notes>
             <ul>
-              <li>Browser Wars! MS was an alpha predator and literally evil.</li>
+              <li>Browser Wars of the late 1990s</li>
               <li>Netscape Navigator 2.0 was released, featuring support for JavaScript.</li>
               <li>Microsoft developed a compatible dialect of the language, naming it JScript</li>
               <li>Netscape saved US via the European Computer Manufacturers Association (ECMA)</li>
             </ul>
           </Notes>
-        </Slide>        
+        </Slide>
 
           <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
           <Heading size={2} textColor="primary" caps>JavaScript Types</Heading>
@@ -181,9 +194,8 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </Appear>
           <Notes>
             <ul>
-              <li>Intentionally ignore Symbols</li>
+              <li>Intentionally ignore Symbols and other new types for simplicity.</li>
               <li>Everything Immutable except Object</li>
-              <li>Functions are first-class objects, because they can have properties and methods just like any other object.</li>
             </ul>
           </Notes>
         </Slide>
@@ -200,9 +212,9 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           />
           <Notes>
             Where each property is one of the types in the previous slide.
-            </Notes>
+          </Notes>
         </Slide>
-        
+
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
           <Heading size={3} textColor="primary">FUNCTIONS() ARE FIRST CLASS CITIZENS</Heading>
           <Text margin="50px" textColor="tertiary" caps textSize={66}>This bares reiterating</Text>
@@ -222,6 +234,24 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </Notes>
         </Slide>
 
+         <Slide>
+          <Heading size={2} textColor="secondary" caps>Reference Types</Heading>
+          <CodePane textSize={40}
+            lang="js"
+            source={require("raw-loader!../assets/deepshallow.example")}
+            margin="20px auto"
+          />
+        </Slide>
+
+        <Slide>
+          <Heading size={2} textColor="secondary" caps>Reference Types</Heading>
+          <CodePane textSize={40}
+            lang="js"
+            source={require("raw-loader!../assets/deepshallow.1.example")}
+            margin="20px auto"
+          />
+        </Slide>
+
         <Slide>
           <Heading size={4} textColor="secondary" fit caps>Value & Reference Types</Heading>
            <Text margin="10px 0 0" textColor="tertiary" size={1} fill>
@@ -229,25 +259,12 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </Text>
         </Slide>
 
-         <Slide >
-          <Heading size={2} textColor="secondary" caps>Duck Typing At Runtime</Heading>
-           <Text margin="10px 0 0" textColor="tertiary" size={1} fill>
-            <Image src={images.refvaltype.replace("/", "")} height="650px" />
-          </Text>
-          <Notes>
-            <ul>
-              <li>Remember "weakly/loosely typed</li>
-              <li> “type casting,” when done explicitly, and “coercion” when done implicitly</li>
-            </ul>
-          </Notes>
-        </Slide>
-
-
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={3} textColor="secondary" caps>Objects & Prototypes</Heading>
+          <Heading size={1} textColor="secondary" caps>Objects & Prototypes</Heading>
           <Image src={images.prototypes.replace("/", "")} margin="30px auto 50px" height="800px" />
           <Notes>
             <ul>
+              <li>8:00</li>
               <li>Confusing for OOP people.</li>
               <li>No class implementation (the class keyword in ES2015, but is syntactical sugar</li>
               <li>Objects are bags of properties but all link to a prototype seach </li>
@@ -272,7 +289,7 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
             margin="20px auto"
           />
         </Slide>
-
+{/*
         <Slide>
           <Heading size={2} textColor="secondary" caps>3. Prototypes & new Object()</Heading>
           <CodePane textSize={34}
@@ -281,6 +298,7 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
             margin="20px auto"
           />
         </Slide>
+*/}
 
         <Slide >
           <Heading size={2} textColor="secondary" caps>Polyfills! ∴ Prototypes!</Heading>
@@ -302,6 +320,11 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
               <dt margin="20px">Concurrent</dt>
             </dl>
           </Text>
+          <Notes>
+            <ul>
+              <li>15:00</li>
+            </ul>
+          </Notes>
         </Slide>
 
          <Slide transition={["zoom"]} bgColor="secondary" textColor="primary">
@@ -338,6 +361,7 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </List>
           <Notes>
             <ul>
+              <li>22:00</li>
               <li>Future in Java, Task in C#</li>
               <li>In the same way a promise in JS is a data structure that implements being resolved, being broken or still waiting on one.</li>
             </ul>
@@ -404,6 +428,7 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           <Image margin="50px auto" src={images.queue.replace("/", "")} height="600px" />
           <Notes>
             <ul>
+              <li>..........................................................    29:00</li>
               <li>Movie ticket analogy... physical queue requires request to complete before starting next one.</li>
             </ul>
           </Notes>
@@ -434,6 +459,11 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           <Heading size={1} textColor="primary">MAP?</Heading>
           <Heading size={1} textColor="primary">REDUCE?</Heading>
           <Heading size={1} textColor="primary">FILTER?</Heading>
+          <Notes>
+            <ul>
+              <li>36:00</li>
+            </ul>
+          </Notes>
         </Slide>
 
          <Slide transition={["fade"]} bgColor="tertiary">

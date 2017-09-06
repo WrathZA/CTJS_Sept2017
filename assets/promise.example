@@ -1,7 +1,10 @@
-var p1 = Promise.resolve(3);
-var p2 = fetchSomeStuff("https://api.stuff.com");
-var p3 = "YOLO!"
+var promise1 = fetchFromInterWebs();
+var promise2 = fetchFromCache();
 
-Promise.all([p1, p2, p3]).then(values => { 
-  console.log(values); // [3, someStuffObject, "YOLO!"] 
-});
+Promise.race([promise1,promise2])
+    .then(function(firstOne){
+        //Do Stuff with whatever comes back first!
+    })
+    .catch(function(error) {
+        console.log("AAAAAAGGGHHHHHH!!!!!"); 
+    });

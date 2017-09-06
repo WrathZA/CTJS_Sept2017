@@ -1,0 +1,15 @@
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  
+  var p1 = "<h1>Demo page</h1>";
+  var p2 = getSomeDate(client);
+  var p3 = getSomeOtherDate(client);
+  var p4 = getMoreData(client);
+
+  // Promise.all() -> RETURNS A PROMISE WHEN ALL PROMISES RESOLVE 
+  Promise.all([p1,p2,p3,p4]) 
+    .then(function (values) {
+      res.write(values.join(" "))
+      res.end();
+    });
+});

@@ -5,8 +5,8 @@ var AccessToOfficeTimeSeries = [{
 }, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]
 
 let phuzaDetective = AccessToOfficeTimeSeries
-    .Filter(onlyKurtosysFunc)
-    .Filter(fridayOnlyFilterFunc)
-    .Map(tagIdToPerson)
-    .Reduce(countFridays);
+    .filter(onlyKurtosysFunc)
+    .filter(fridayOnlyFilterFunc)
+    .map(tagIdToPerson)
+    .reduce(countFridays);
 

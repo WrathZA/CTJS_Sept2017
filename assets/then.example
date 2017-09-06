@@ -1,7 +1,11 @@
-var promise1 = fetchFromInterWebs();
-var promise2 = fetchFromCache();
+var promise1 = fetchFromInterWebs(); //Returns a promise!
 
-Promise.race([promise1,promise2])
-    .then(function(firstOne){
-        //Do Stuff with whatever comes back first!
-    });
+var successFunction = function(data) {
+    doDataStuff(data);
+}
+
+var failFunction = function(data) {
+    console.log("EVERYONE PANIC!");
+}
+
+promise1.then(successFunction, failFunction);

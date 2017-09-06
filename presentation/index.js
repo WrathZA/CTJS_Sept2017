@@ -81,6 +81,17 @@ export default class Presentation extends React.Component {
           <Image margin="50px auto" src={images.son.replace("/", "")} margin="0px auto 50px" height="700px" />
         </Slide>
 
+         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={2} textColor="primary">CONCEPTS COVERED</Heading>
+          <List margin="30px 0 0 375px">
+            <ListItem textSize={56}>What is JS? (Language, Types etc)</ListItem>
+            <ListItem textSize={56}>Very Simple Explanation of JS Engine</ListItem>
+            <ListItem textSize={56}>Event Loop!</ListItem>
+            <ListItem textSize={56}>Promises</ListItem>
+            <ListItem textSize={56}>Functional JS and Concepts</ListItem>
+          </List>
+        </Slide>
+
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
           <Heading size={4} textColor="primary">JavaScript is most kindly described as a language that "just happened" and an enduring testament to human capacity to route around problems</Heading>
           <Appear>
@@ -88,7 +99,7 @@ export default class Presentation extends React.Component {
               Properties
           </Text>
           </Appear>
-          <List margin="30px 0 0 600px">
+          <List margin="30px 0 0 575px">
             <Appear>
               <ListItem textSize={56}>High-Level</ListItem>
             </Appear>
@@ -143,7 +154,7 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
               <li>Netscape saved US via the European Computer Manufacturers Association (ECMA)</li>
             </ul>
           </Notes>
-        </Slide>
+        </Slide>        
 
           <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
           <Heading size={2} textColor="primary" caps>JavaScript Types</Heading>
@@ -191,6 +202,25 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
             Where each property is one of the types in the previous slide.
             </Notes>
         </Slide>
+        
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={3} textColor="primary">FUNCTIONS() ARE FIRST CLASS CITIZENS</Heading>
+          <Text margin="50px" textColor="tertiary" caps textSize={66}>This bares reiterating</Text>
+          <Text textSize={66} textColor="tertiary" margin="50px auto">They're objects which means they can be passed as arguments and variables</Text>
+          <Text textSize={66} textColor="tertiary"> They can be returned from other functions</Text>
+          <Appear>
+            <Text textSize="100" margin="50px 0 0" textColor="primary" bold>
+              MATTERS WHY?
+            </Text>
+          </Appear>
+          <Notes>
+            <ul>
+              <li>Why is out of scope for this talk.</li>
+              <li>Partialliy implemented. currying etc</li>
+              <li>function factories?</li>
+            </ul>
+          </Notes>
+        </Slide>
 
         <Slide>
           <Heading size={4} textColor="secondary" fit caps>Value & Reference Types</Heading>
@@ -212,24 +242,6 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           </Notes>
         </Slide>
 
-        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-          <Heading size={3} textColor="primary">FUNCTIONS() ARE FIRST CLASS CITIZENS</Heading>
-          <Text margin="50px" textColor="tertiary" caps textSize={66}>This bares reiterating</Text>
-          <Text textSize={66} textColor="tertiary" margin="50px auto">They're objects which means they can be passed as arguments and variables</Text>
-          <Text textSize={66} textColor="tertiary"> They can be returned from other functions</Text>
-          <Appear>
-            <Text textSize="100" margin="50px 0 0" textColor="primary" bold>
-              MATTERS WHY?
-            </Text>
-          </Appear>
-          <Notes>
-            <ul>
-              <li>Why is out of scope for this talk.</li>
-              <li>Partialliy implemented. currying etc</li>
-              <li>function factories?</li>
-            </ul>
-          </Notes>
-        </Slide>
 
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={3} textColor="secondary" caps>Objects & Prototypes</Heading>
@@ -281,6 +293,17 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           />
         </Slide>
 
+         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={2} textColor="primary" caps>JavaScript Runtime</Heading>
+          <Text textSize="76" textColor="primary" bold>
+            <dl>
+              <dt margin="20px">Single Threaded</dt>
+              <dt margin="20px">Event Driven</dt>
+              <dt margin="20px">Concurrent</dt>
+            </dl>
+          </Text>
+        </Slide>
+
          <Slide transition={["zoom"]} bgColor="secondary" textColor="primary">
            <Heading size={2} textColor="primary" caps>THE EVENT LOOP</Heading>
            <Image margin="50px" src={images.loopcat.replace("/", "")} height="450px" />
@@ -297,7 +320,7 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={1} textColor="secondary" caps>WTF is a Promise?</Heading>
           <Appear>
-            <Text textSize={56} textColor="secondary"> Something you asked for, happening at some point</Text>
+            <Text margin="30px" textSize={56} textColor="secondary"> Something you asked for, happening at some point</Text>
           </Appear>
           <Appear>
             <Heading margin="50px 0 0 0" size={5} textColor="secondary">State a promise can exist in?</Heading>
@@ -346,6 +369,15 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={3} textColor="primary" caps>Before Promises</Heading>
+          <CodePane textSize={36}
+            lang="js"
+            source={require("raw-loader!../assets/callbackhell.1.example")}
+            margin="20px auto"
+          />
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
           <Heading size={1} textColor="primary">THERE IS NOTHING WRONG WITH USING CALLBACKS</Heading>
         </Slide>
 
@@ -354,6 +386,15 @@ Its the bytecode in the JVM sense or machine code in the native sense.</span>
           <CodePane textSize={46}
             lang="js"
             source={require("raw-loader!../assets/promise.example")}
+            margin="20px auto"
+          />
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={3} textColor="primary">Why are promises useful?</Heading>
+          <CodePane textSize={46}
+            lang="js"
+            source={require("raw-loader!../assets/promise.1.example")}
             margin="20px auto"
           />
         </Slide>

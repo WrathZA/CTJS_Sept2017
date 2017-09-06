@@ -1,0 +1,9 @@
+let fetchFromCache = function () {
+    return new Promise(function(resolve, reject) {
+        var data = localStorage.getItem("DATA");
+        if (data) {
+            resolve(data);
+        }
+    });
+};
+

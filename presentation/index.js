@@ -200,6 +200,27 @@ export default class Presentation extends React.Component {
           </Notes>
         </Slide>
 
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={1} textColor="primary" caps>truthy? falsy?</Heading>
+          <Text margin="50px 0 0" textColor="tertiary" bold>
+            All objects are truthy, even empty ones.
+          </Text>
+          <Heading margin="25px 0 0" size={3} textColor="primary" caps>falsy values</Heading>
+          <Text textSize="80" textColor="tertiary" bold>
+            <dl>
+              <dt>false</dt>
+              <dt>null</dt>
+              <dt>undefined</dt>
+              <dt>0</dt>
+              <dt>NaN</dt>
+              <dt>''</dt>
+            </dl>
+          </Text>
+          <Notes>
+            Where each property is one of the types in the previous slide.
+          </Notes>
+        </Slide>
+
          <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
           <Heading size={3} textColor="primary">What's an Object? {"{"} {"}"}</Heading>
           <Text margin="25px 0 0" textColor="tertiary" bold>
@@ -415,7 +436,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-          <Heading size={3} textColor="primary">Why are promises useful?</Heading>
+          <Heading size={3} textColor="primary">Make your own promise</Heading>
           <CodePane textSize={46}
             lang="js"
             source={require("raw-loader!../assets/promise.1.example")}
@@ -546,14 +567,16 @@ export default class Presentation extends React.Component {
           <Heading size={2} textColor="primary"> Call for Speakers Open!</Heading>
         </Slide>
 
-        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-          <Text textColor="primary">
-               https://leanpub.com/javascriptallongesix/
-               http://eloquentjavascript.net
-               http://speakingjs.com
-               https://developer.mozilla.org/en-US/docs/Web/JavaScript
-               https://devdocs.io/
-          </Text>
+       <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={2} textColor="primary" caps>THANK YOU</Heading>
+          <List margin="30px 0 0 20px">
+            <ListItem textSize={60}>leanpub.com/javascriptallongesix</ListItem>
+            <ListItem textSize={60}>jstherightway.org</ListItem>
+            <ListItem textSize={60}>eloquentjavascript.net</ListItem>
+            <ListItem textSize={60}>speakingjs.com</ListItem>
+            <ListItem textSize={60}>devdocs.io</ListItem>
+            <ListItem textSize={60}>developer.mozilla.org/en-US/docs/Web/JavaScript</ListItem>
+          </List>
         </Slide>
 
       </Deck>
